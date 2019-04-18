@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>API Documentation</title>
+  <meta name="description" content="        ">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/additional.css">
+  <link rel="canonical" href="http://localhost:4000/2015/06/17/api-documentation.html">
+  <link rel="alternate" type="application/rss+xml" title="ZenHR API's Documentaion" href="http://localhost:4000/feed.xml" />
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/javascripts/testello.js"></script>
+</head>
+
+  <body>
+    <div class="header">
+      <div class="jumbotron main-jumbotron">
+        <div class="container">
+          <header>
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <span class='pull-left'>
+          <a class="navbar-brand" href="/" title='Testello.com'>
+            <img class="logo img-responsive" src="/logo.png">
+          </a>
+        </span>
+        <span class='pull-right'>
+          <a class="navbar-brand" href="https://testello.com" title='dev.testello.com'>
+            <img class="logo img-responsive" src="/testello_logo.png">
+          </a>
+        </span>
+        <span id="top-link-block" class="affix pull-right">
+          <a href="#top" class="btn transparent-btn" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <span class="fa fa-search">Back to Top</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+  <div class="col-xs-12">
+    <h1 class="post-title">API Documentation</h1>
+  </div>
+  <div class="col-xs-12">
+    <div class="row">
+<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="overflow">
+<div id="sidebar">
+<div>
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting started</a></li>
+  <li><a href="#authentication" id="markdown-toc-authentication">Authentication</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example:</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example:</a></li>
+    </ul>
+  </li>
+  <li><a href="#encoding-and-decoding" id="markdown-toc-encoding-and-decoding">Encoding and Decoding</a>    <ul>
+      <li><a href="#ruby" id="markdown-toc-ruby">Ruby:</a></li>
+      <li><a href="#php" id="markdown-toc-php">PHP:</a></li>
+      <li><a href="#paython" id="markdown-toc-paython">PAYTHON</a></li>
+    </ul>
+  </li>
+</ul>
+
+      </div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-xs-12">
+
+    <h3 id="overview">Overview</h3>
+
+    <div style="padding-left: 15px">
+Our API is based on <b>JWT</b> (JSON Web Token), we use <b>JWT (HS256 - HMAC using SHA-256 hash algorithm)</b>
+
+In order to start the integration you need to generate <b>secret</b> and <b>key </b>tokens.
+
+The <b>Key </b>will be used to identify your request and the <b>Secret </b>will be used for encoding and decoding your <b>payload</b>.
+
+</div>
+    <h3 id="getting-started">Getting started</h3>
+
+    <div style="padding-left: 15px">
+  First you need to login to<b> ZenHR </b>to generate your key and secret tokens
+
+  <ol>
+    <li>
+      <h4>Go to settings</h4>
+      <br />
+      <img src="/images/0.png" width="85%" />
+    </li>
+  <br />
+  <br />
+    <li>
+      <h4>Select API Keys tab</h4>
+      <br />
+      <img src="/images/1.png" width="85%" />
+    </li>
+  <br />
+  <br />
+    <li>
+      <h4>Click on (+ Add) button to add new key and secret</h4>
+      <ul style="width: 80%">
+        <li>
+           The Name field is just a label to let you know which API Key is used for which integration
+        </li>
+        <li>
+           The  Permissions field will be used to identify your allowed actions in your requests to ZenHR
+        </li>
+        <li>
+           The IP Addresses field is optional, however; we highly recommend adding them, in that case we will not accept any request to your account other than the ones that come form your IP Addresses
+        </li>
+      </ul>
+      <br />
+      <p style="color: red"> Note: The IP Addresses must be splitted by comma in case you wanted to enter more that a single IP Address </p>
+      <img src="/images/2.png" width="85%" />
+    </li>
+  <br />
+  <br />
+    <li>
+      <h4>After Filling your fields, click on create to generate you API Keys</h4>
+      <br />
+      <img src="/images/3.png" width="85%" />
+    </li>
+
+  <br />
+  <br />
+    <li>
+      <h4>Now That you have created you API Key successfully click on Copy Key and Copy Secret to copy them</h4>
+      <br />
+      <img src="/images/4.png" width="85%" />
+    </li>
+
+  </ol>
+</div>
+
+    <h3 id="authentication">Authentication</h3>
+
+    <p>In every request you make to <b>ZenHR</b> you need to do the following:</p>
+    <ul>
+  <li>
+    Add the your <b>key</b> to the header
+  <br />
+    <b>example: { key: “dgRp1eC2kAGEIYxRR4GKy-drze_Q6chskxebX__7Yjc” }</b>
+  </li>
+  <li>
+    Your payload must be <b>encoded</b>  using the <b>secret</b> and set in the <b>body</b>
+  </li>
+  <li>
+    You should add your <b>key</b> to your <b>payload</b> before encoding it.
+  </li>
+</ul>
+
+    <h4 id="example">Example:</h4>
+    <p>your payload should follow the below structure:</p>
+
+    <table class="table table-condensed" style="width: 70%">
+    <thead>
+      <tr>
+        <th scope="col">
+          Pyload parameters key
+        </th>
+        <th scope="col">
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          params
+        </td>
+        <td>
+          Json params ex: {:employee_id=&gt;1}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          key
+        </td>
+        <td>
+          The Identifier Key which was generated in the setting in your ZenHR account
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    <h4 id="example-1">Example:</h4>
+    <p><b>{:params=&gt;{:employee_id=&gt;1}, :key=&gt;”YOUR KEY”}</b></p>
+
+    <p><b>then encrypt the payload using the API secret which related to the same key.</b></p>
+    <p style="color: red;">
+  You should note that you have a limit of 500 request everyday.
+</p>
+
+    <h3 id="encoding-and-decoding">Encoding and Decoding</h3>
+
+    <h4 id="ruby">Ruby:</h4>
+    <p>Install JWT Gem</p>
+    <pre>
+sudo gem install jwt
+</pre>
+
+    <pre>
+hmac_secret = 'YOUR SECRET'
+
+token = JWT.encode payload, hmac_secret, 'HS256'
+
+puts token
+# eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoidGVzdCJ9.pNIWIL34Jo13LViZAJACzK6Yf0qnvT_BuwOxiMCPE-Y
+
+decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+
+puts decoded_token
+# Array
+# [
+#   {"data"=&gt;"test"}, # payload
+#   {"alg"=&gt;"HS256"} # header
+# ]
+</pre>
+
+    <h4 id="php">PHP:</h4>
+    <p>install JWT using Composer</p>
+    <pre>
+  composer require mishal/jwt
+</pre>
+
+    <pre>
+
+&lt;?php
+/*
+ * This file is part of Jwt for Php.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Jwt\Jwt;
+use Jwt\Algorithm\HS256Algorithm;
+
+$token = Jwt::encode('string', $alg = new HS256Algorithm('secret'));
+
+echo $token; // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoic3RyaW5nIn0.RncJbCyf4zd0pu1N02u_rKwEezkmd94r3i5sWLk1ceU
+
+// decode, you must passed allowed algorithm(s) to prevent attackers to control the choice of algorithm
+$decoded = Jwt::decode($token, ['algorithm' =&gt; $alg]);
+
+echo $decoded['data']; // 'string'
+</pre>
+
+    <h4 id="paython">PAYTHON</h4>
+
+    <pre>
+
+import chilkat
+
+#  Demonstrates how to create an HMAC JWT using a shared secret (password).
+
+#  This example requires the Chilkat API to have been previously unlocked.
+#  See Global Unlock Sample for sample code.
+
+jwt = chilkat.CkJwt()
+
+#  Build the JOSE header
+jose = chilkat.CkJsonObject()
+
+success = jose.AppendString("alg","HS256")
+success = jose.AppendString("typ","JWT")
+
+#  Now build the JWT claims (also known as the payload)
+claims = chilkat.CkJsonObject()
+success = claims.AppendString("iss","http://example.org")
+success = claims.AppendString("sub","John")
+success = claims.AppendString("aud","http://example.com")
+
+#  Set the timestamp of when the JWT was created to now.
+curDateTime = jwt.GenNumericDate(0)
+success = claims.AddIntAt(-1,"iat",curDateTime)
+
+#  Set the "not process before" timestamp to now.
+success = claims.AddIntAt(-1,"nbf",curDateTime)
+
+#  Set the timestamp defining an expiration time (end time) for the token
+#  to be now + 1 hour (3600 seconds)
+success = claims.AddIntAt(-1,"exp",curDateTime + 3600)
+
+#  Produce the smallest possible JWT:
+jwt.put_AutoCompact(True)
+
+strJwt = jwt.createJwt(jose.emit(),claims.emit(),"secret")
+
+print(strJwt)
+</pre>
+  </div></div>
+
+  </div>
+</div>
+
+
+    </div>
+    <div class="footer">
+      <footer>
+  <div class="container">
+    <div class="col-xs-8 text-left">
+      
+        
+          <p><a href="/2015/06/17/api-documentation.html">API Documentation</a></p>
+        
+      
+    </div>
+    <div class="col-xs-4 text-right">
+      <p>® Testello 2015</p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </body>
+</html>
