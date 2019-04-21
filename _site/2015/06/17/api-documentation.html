@@ -73,6 +73,22 @@
       <li><a href="#paython" id="markdown-toc-paython">PAYTHON</a></li>
     </ul>
   </li>
+  <li><a href="#requests-and-respons" id="markdown-toc-requests-and-respons">Requests and Respons</a></li>
+  <li><a href="#employees" id="markdown-toc-employees">Employees</a>    <ul>
+      <li><a href="#payload-example" id="markdown-toc-payload-example">Payload example</a></li>
+      <li><a href="#payload-example-1" id="markdown-toc-payload-example-1">Payload example</a></li>
+    </ul>
+  </li>
+  <li><a href="#professional-data" id="markdown-toc-professional-data">Professional data</a>    <ul>
+      <li><a href="#payload-example-2" id="markdown-toc-payload-example-2">Payload example</a></li>
+      <li><a href="#payload-example-3" id="markdown-toc-payload-example-3">Payload example</a></li>
+      <li><a href="#payload-example-4" id="markdown-toc-payload-example-4">Payload example</a></li>
+    </ul>
+  </li>
+  <li><a href="#financial-data" id="markdown-toc-financial-data">Financial data</a>    <ul>
+      <li><a href="#payload-example-5" id="markdown-toc-payload-example-5">Payload example</a></li>
+    </ul>
+  </li>
 </ul>
 
       </div>
@@ -153,7 +169,7 @@ The <b>Key </b>will be used to identify your request and the <b>Secret </b>will 
   <li>
     Add the your <b>key</b> to the header
   <br />
-    <b>example: { key: “dgRp1eC2kAGEIYxRR4GKy-drze_Q6chskxebX__7Yjc” }</b>
+    <b>example: <pre>{ key: “dgRp1eC2kAGEIYxRR4GKy-drze_Q6chskxebX__7Yjc” }</pre></b>
   </li>
   <li>
     Your payload must be <b>encoded</b>  using the <b>secret</b> and set in the <b>body</b>
@@ -198,7 +214,7 @@ The <b>Key </b>will be used to identify your request and the <b>Secret </b>will 
   </table>
 
     <h4 id="example-1">Example:</h4>
-    <p><b>{:params=&gt;{:employee_id=&gt;1}, :key=&gt;”YOUR KEY”}</b></p>
+    <pre><b>{:params=&gt;{:employee_id=&gt;1}, :key=&gt;"YOUR KEY"}</b></pre>
 
     <p><b>then encrypt the payload using the API secret which related to the same key.</b></p>
     <p style="color: red;">
@@ -304,6 +320,82 @@ jwt.put_AutoCompact(True)
 strJwt = jwt.createJwt(jose.emit(),claims.emit(),"secret")
 
 print(strJwt)
+</pre>
+
+    <h3 id="requests-and-respons">Requests and Respons</h3>
+    <p>In order to fetch data use <b>GET</b> method
+<br />
+Don’t forget to set your key in the header and your payload in the body</p>
+
+    <h3 id="employees">Employees</h3>
+
+    <p>In order to fetch all employees data
+<br /></p>
+    <h4 id="payload-example">Payload example</h4>
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employees
+</pre>
+
+    <p>for a single employee 
+<br />
+set your employee id in the payload inside params before you encode your payload</p>
+
+    <h4 id="payload-example-1">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY, params: { id: YOUR_EMPLOYEE_ID } }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employee
+</pre>
+
+    <h3 id="professional-data">Professional data</h3>
+
+    <p>In order to fetch all employees professional data
+<br /></p>
+    <h4 id="payload-example-2">Payload example</h4>
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/professional_data
+</pre>
+
+    <p>to get all professional data for a single employee
+<br /></p>
+    <h4 id="payload-example-3">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
+</pre>
+
+    <p>to get the current professional data for a single employee
+<br /></p>
+    <h4 id="payload-example-4">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
+</pre>
+
+    <h3 id="financial-data">Financial data</h3>
+
+    <p>In order to fetch all employees financial data
+<br /></p>
+    <h4 id="payload-example-5">Payload example</h4>
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
 </pre>
   </div></div>
 
