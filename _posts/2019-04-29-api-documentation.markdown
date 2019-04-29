@@ -248,7 +248,7 @@ By default we paginate data before responding to your request, the default is 10
 #### example
 <pre> https://www.zenhr.com/integration/v1/employees?per_page=15 </pre>
 
-since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we response with the first page
+since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we will respond with the first page
 
 #### example
 <pre> https://www.zenhr.com/integration/v1/employees?per_page=15&page=2 </pre>
@@ -323,7 +323,11 @@ Please note that the encoded payload which comes from us will be valid for only 
 </h3>
 
 ### Ping
-use the end point to test your integration.
+use this end point to test your integration.
+
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/ping
+</pre>
 
 when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.
 

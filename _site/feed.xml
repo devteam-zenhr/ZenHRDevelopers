@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T11:20:09+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2015/06/17/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2015-06-17T00:00:00+03:00</published><updated>2015-06-17T00:00:00+03:00</updated><id>http://localhost:4000/2015/06/17/api-documentation</id><content type="html" xml:base="http://localhost:4000/2015/06/17/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T12:40:11+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -278,7 +278,7 @@ print(strJwt)
     &lt;h4 id=&quot;example-2&quot;&gt;example&lt;/h4&gt;
     &lt;pre&gt; https://www.zenhr.com/integration/v1/employees?per_page=15 &lt;/pre&gt;
 
-    &lt;p&gt;since we are paginating the data, you need to specify which page you want to request using &lt;b&gt; page &lt;/b&gt; param, if you did not pass this param we response with the first page&lt;/p&gt;
+    &lt;p&gt;since we are paginating the data, you need to specify which page you want to request using &lt;b&gt; page &lt;/b&gt; param, if you did not pass this param we will respond with the first page&lt;/p&gt;
 
     &lt;h4 id=&quot;example-3&quot;&gt;example&lt;/h4&gt;
     &lt;pre&gt; https://www.zenhr.com/integration/v1/employees?per_page=15&amp;amp;page=2 &lt;/pre&gt;
@@ -352,7 +352,11 @@ Please note that the encoded payload which comes from us will be valid for only 
 &lt;/h3&gt;
 
     &lt;h3 id=&quot;ping&quot;&gt;Ping&lt;/h3&gt;
-    &lt;p&gt;use the end point to test your integration.&lt;/p&gt;
+    &lt;p&gt;use this end point to test your integration.&lt;/p&gt;
+
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/ping
+&lt;/pre&gt;
 
     &lt;p&gt;when you make a successful request, ping will respones with a payload which &lt;b&gt;does not has an expiry time&lt;/b&gt;, so that you can test your decode method.&lt;/p&gt;
 
