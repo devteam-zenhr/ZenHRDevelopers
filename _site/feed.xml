@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T12:40:11+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T15:03:17+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -36,6 +36,18 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#financial-data&quot; id=&quot;markdown-toc-financial-data&quot;&gt;Financial data&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#payload-example-5&quot; id=&quot;markdown-toc-payload-example-5&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-6&quot; id=&quot;markdown-toc-payload-example-6&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-7&quot; id=&quot;markdown-toc-payload-example-7&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#financial-transactions&quot; id=&quot;markdown-toc-financial-transactions&quot;&gt;Financial transactions&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-8&quot; id=&quot;markdown-toc-payload-example-8&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-9&quot; id=&quot;markdown-toc-payload-example-9&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#salaries&quot; id=&quot;markdown-toc-salaries&quot;&gt;Salaries&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-10&quot; id=&quot;markdown-toc-payload-example-10&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#payload-example-11&quot; id=&quot;markdown-toc-payload-example-11&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -343,6 +355,10 @@ print(strJwt)
     &lt;/tbody&gt;
   &lt;/table&gt;
 
+    &lt;p style=&quot;color: red&quot;&gt;
+    However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
+  &lt;/p&gt;
+
     &lt;p&gt;In order to fetch data use &lt;b&gt;GET&lt;/b&gt; method
 &lt;br /&gt;
 Don’t forget to set your key in the header and your payload in the body&lt;/p&gt;
@@ -433,5 +449,73 @@ curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request 
 &lt;/pre&gt;
     &lt;pre&gt;
 curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
+&lt;/pre&gt;
+
+    &lt;p&gt;to get all financial data for a single employee
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-6&quot;&gt;Payload example&lt;/h4&gt;
+
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+&lt;/pre&gt;
+
+    &lt;p&gt;to get the active financial data for a single employee
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-7&quot;&gt;Payload example&lt;/h4&gt;
+
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+&lt;/pre&gt;
+
+    &lt;h3 id=&quot;financial-transactions&quot;&gt;Financial transactions&lt;/h3&gt;
+
+    &lt;p&gt;In order to fetch all employees financial transactions
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-8&quot;&gt;Payload example&lt;/h4&gt;
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_transactions
+&lt;/pre&gt;
+
+    &lt;p&gt;to get all financial transactions for a single employee
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-9&quot;&gt;Payload example&lt;/h4&gt;
+
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+&lt;/pre&gt;
+
+    &lt;h3 id=&quot;salaries&quot;&gt;Salaries&lt;/h3&gt;
+
+    &lt;p&gt;In order to fetch all employees salaries
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-10&quot;&gt;Payload example&lt;/h4&gt;
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/salaries
+&lt;/pre&gt;
+
+    &lt;p&gt;to get all salaries for a single employee
+&lt;br /&gt;&lt;/p&gt;
+    &lt;h4 id=&quot;payload-example-11&quot;&gt;Payload example&lt;/h4&gt;
+
+    &lt;pre&gt;
+{ key: YOUR_KEY }
+&lt;/pre&gt;
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
 &lt;/pre&gt;
   &lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>

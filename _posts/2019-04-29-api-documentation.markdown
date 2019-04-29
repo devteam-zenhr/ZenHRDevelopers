@@ -314,6 +314,10 @@ Every respons will be encoded, after decoding it you will have the following JSO
     </tbody>
   </table>
 
+  <p style='color: red'>
+    However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
+  </p>
+
 In order to fetch data use <b>GET</b> method
 <br>
 Don't forget to set your key in the header and your payload in the body
@@ -406,4 +410,74 @@ In order to fetch all employees financial data
 </pre>
 <pre>
 curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
+</pre>
+
+to get all financial data for a single employee
+<br>
+#### Payload example
+
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+</pre>
+
+to get the active financial data for a single employee
+<br>
+#### Payload example
+
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+</pre>
+
+### Financial transactions
+
+
+In order to fetch all employees financial transactions
+<br>
+#### Payload example
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_transactions
+</pre>
+
+to get all financial transactions for a single employee
+<br>
+#### Payload example
+
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+</pre>
+
+### Salaries
+
+
+In order to fetch all employees salaries
+<br>
+#### Payload example
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/salaries
+</pre>
+
+to get all salaries for a single employee
+<br>
+#### Payload example
+
+<pre>
+{ key: YOUR_KEY }
+</pre>
+<pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
 </pre>

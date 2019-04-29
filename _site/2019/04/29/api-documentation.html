@@ -88,6 +88,18 @@
   </li>
   <li><a href="#financial-data" id="markdown-toc-financial-data">Financial data</a>    <ul>
       <li><a href="#payload-example-5" id="markdown-toc-payload-example-5">Payload example</a></li>
+      <li><a href="#payload-example-6" id="markdown-toc-payload-example-6">Payload example</a></li>
+      <li><a href="#payload-example-7" id="markdown-toc-payload-example-7">Payload example</a></li>
+    </ul>
+  </li>
+  <li><a href="#financial-transactions" id="markdown-toc-financial-transactions">Financial transactions</a>    <ul>
+      <li><a href="#payload-example-8" id="markdown-toc-payload-example-8">Payload example</a></li>
+      <li><a href="#payload-example-9" id="markdown-toc-payload-example-9">Payload example</a></li>
+    </ul>
+  </li>
+  <li><a href="#salaries" id="markdown-toc-salaries">Salaries</a>    <ul>
+      <li><a href="#payload-example-10" id="markdown-toc-payload-example-10">Payload example</a></li>
+      <li><a href="#payload-example-11" id="markdown-toc-payload-example-11">Payload example</a></li>
     </ul>
   </li>
 </ul>
@@ -395,6 +407,10 @@ print(strJwt)
     </tbody>
   </table>
 
+    <p style="color: red">
+    However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
+  </p>
+
     <p>In order to fetch data use <b>GET</b> method
 <br />
 Don’t forget to set your key in the header and your payload in the body</p>
@@ -485,6 +501,74 @@ curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https:
 </pre>
     <pre>
 curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
+</pre>
+
+    <p>to get all financial data for a single employee
+<br /></p>
+    <h4 id="payload-example-6">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+</pre>
+
+    <p>to get the active financial data for a single employee
+<br /></p>
+    <h4 id="payload-example-7">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+</pre>
+
+    <h3 id="financial-transactions">Financial transactions</h3>
+
+    <p>In order to fetch all employees financial transactions
+<br /></p>
+    <h4 id="payload-example-8">Payload example</h4>
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_transactions
+</pre>
+
+    <p>to get all financial transactions for a single employee
+<br /></p>
+    <h4 id="payload-example-9">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+</pre>
+
+    <h3 id="salaries">Salaries</h3>
+
+    <p>In order to fetch all employees salaries
+<br /></p>
+    <h4 id="payload-example-10">Payload example</h4>
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/salaries
+</pre>
+
+    <p>to get all salaries for a single employee
+<br /></p>
+    <h4 id="payload-example-11">Payload example</h4>
+
+    <pre>
+{ key: YOUR_KEY }
+</pre>
+    <pre>
+curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
 </pre>
   </div></div>
 
