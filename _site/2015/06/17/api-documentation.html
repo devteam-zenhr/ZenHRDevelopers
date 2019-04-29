@@ -73,7 +73,13 @@
       <li><a href="#paython" id="markdown-toc-paython">PAYTHON</a></li>
     </ul>
   </li>
+  <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
+      <li><a href="#example-2" id="markdown-toc-example-2">example</a></li>
+      <li><a href="#example-3" id="markdown-toc-example-3">example</a></li>
+    </ul>
+  </li>
   <li><a href="#requests-and-respons" id="markdown-toc-requests-and-respons">Requests and Respons</a></li>
+  <li><a href="#ping" id="markdown-toc-ping">Ping</a></li>
   <li><a href="#employees" id="markdown-toc-employees">Employees</a>    <ul>
       <li><a href="#payload-example" id="markdown-toc-payload-example">Payload example</a></li>
       <li><a href="#payload-example-1" id="markdown-toc-payload-example-1">Payload example</a></li>
@@ -322,10 +328,94 @@ strJwt = jwt.createJwt(jose.emit(),claims.emit(),"secret")
 print(strJwt)
 </pre>
 
+    <h3 id="parameters">Parameters</h3>
+
+    <p>By default we paginate data before responding to your request, the default is 10 records per page, you may change that by passing <b>per_page</b> param in the URL</p>
+
+    <h4 id="example-2">example</h4>
+    <pre> https://www.zenhr.com/integration/v1/employees?per_page=15 </pre>
+
+    <p>since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we response with the first page</p>
+
+    <h4 id="example-3">example</h4>
+    <pre> https://www.zenhr.com/integration/v1/employees?per_page=15&amp;page=2 </pre>
+
     <h3 id="requests-and-respons">Requests and Respons</h3>
+
+    <p>Every respons will be encoded, after decoding it you will have the following JSON object</p>
+    <pre> {"current_page" =&gt; NUMBER, "per_page" =&gt; NUMBER, "total_number_of_records" =&gt; NUMBER, "total_pages" =&gt; NUMBER, "data" =&gt; JSON OBJECT} </pre>
+
+    <table class="table table-condensed" style="width: 70%">
+    <thead>
+      <tr>
+        <th scope="col">
+          Key
+        </th>
+        <th scope="col">
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          current_page
+        </td>
+        <td>
+          the page you are on, same as <b> page </b> parameter
+        </td>
+      </tr>
+      <tr>
+        <td>
+          per_page
+        </td>
+        <td>
+          the same as <b> per_page </b> parameter
+        </td>
+      </tr>
+      <tr>
+        <td>
+          total_number_of_records
+        </td>
+        <td>
+          the total number of all records, <b> not the number of the records in current page</b>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          total_pages
+        </td>
+        <td>
+          total number of pages
+        </td>
+      </tr>
+      <tr>
+        <td>
+          data
+        </td>
+        <td>
+          JSON object with the requested data
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
     <p>In order to fetch data use <b>GET</b> method
 <br />
 Don’t forget to set your key in the header and your payload in the body</p>
+
+    <h3 style="color: red;">
+Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
+</h3>
+
+    <h3 id="ping">Ping</h3>
+    <p>use the end point to test your integration.</p>
+
+    <p>when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.</p>
+
+    <p>you should get the following after decoding the payload successfully</p>
+
+    <pre>{ data: { ping: 'Pong' } } </pre>
 
     <h3 id="employees">Employees</h3>
 

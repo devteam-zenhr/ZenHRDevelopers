@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-21T13:16:50+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2015/06/17/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2015-06-17T00:00:00+03:00</published><updated>2015-06-17T00:00:00+03:00</updated><id>http://localhost:4000/2015/06/17/api-documentation</id><content type="html" xml:base="http://localhost:4000/2015/06/17/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T11:20:09+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2015/06/17/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2015-06-17T00:00:00+03:00</published><updated>2015-06-17T00:00:00+03:00</updated><id>http://localhost:4000/2015/06/17/api-documentation</id><content type="html" xml:base="http://localhost:4000/2015/06/17/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -16,7 +16,13 @@
       &lt;li&gt;&lt;a href=&quot;#paython&quot; id=&quot;markdown-toc-paython&quot;&gt;PAYTHON&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#parameters&quot; id=&quot;markdown-toc-parameters&quot;&gt;Parameters&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#example-2&quot; id=&quot;markdown-toc-example-2&quot;&gt;example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#example-3&quot; id=&quot;markdown-toc-example-3&quot;&gt;example&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#requests-and-respons&quot; id=&quot;markdown-toc-requests-and-respons&quot;&gt;Requests and Respons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ping&quot; id=&quot;markdown-toc-ping&quot;&gt;Ping&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#employees&quot; id=&quot;markdown-toc-employees&quot;&gt;Employees&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#payload-example&quot; id=&quot;markdown-toc-payload-example&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#payload-example-1&quot; id=&quot;markdown-toc-payload-example-1&quot;&gt;Payload example&lt;/a&gt;&lt;/li&gt;
@@ -265,10 +271,94 @@ strJwt = jwt.createJwt(jose.emit(),claims.emit(),&quot;secret&quot;)
 print(strJwt)
 &lt;/pre&gt;
 
+    &lt;h3 id=&quot;parameters&quot;&gt;Parameters&lt;/h3&gt;
+
+    &lt;p&gt;By default we paginate data before responding to your request, the default is 10 records per page, you may change that by passing &lt;b&gt;per_page&lt;/b&gt; param in the URL&lt;/p&gt;
+
+    &lt;h4 id=&quot;example-2&quot;&gt;example&lt;/h4&gt;
+    &lt;pre&gt; https://www.zenhr.com/integration/v1/employees?per_page=15 &lt;/pre&gt;
+
+    &lt;p&gt;since we are paginating the data, you need to specify which page you want to request using &lt;b&gt; page &lt;/b&gt; param, if you did not pass this param we response with the first page&lt;/p&gt;
+
+    &lt;h4 id=&quot;example-3&quot;&gt;example&lt;/h4&gt;
+    &lt;pre&gt; https://www.zenhr.com/integration/v1/employees?per_page=15&amp;amp;page=2 &lt;/pre&gt;
+
     &lt;h3 id=&quot;requests-and-respons&quot;&gt;Requests and Respons&lt;/h3&gt;
+
+    &lt;p&gt;Every respons will be encoded, after decoding it you will have the following JSON object&lt;/p&gt;
+    &lt;pre&gt; {&quot;current_page&quot; =&amp;gt; NUMBER, &quot;per_page&quot; =&amp;gt; NUMBER, &quot;total_number_of_records&quot; =&amp;gt; NUMBER, &quot;total_pages&quot; =&amp;gt; NUMBER, &quot;data&quot; =&amp;gt; JSON OBJECT} &lt;/pre&gt;
+
+    &lt;table class=&quot;table table-condensed&quot; style=&quot;width: 70%&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;
+          Key
+        &lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;
+          Description
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          current_page
+        &lt;/td&gt;
+        &lt;td&gt;
+          the page you are on, same as &lt;b&gt; page &lt;/b&gt; parameter
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          per_page
+        &lt;/td&gt;
+        &lt;td&gt;
+          the same as &lt;b&gt; per_page &lt;/b&gt; parameter
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          total_number_of_records
+        &lt;/td&gt;
+        &lt;td&gt;
+          the total number of all records, &lt;b&gt; not the number of the records in current page&lt;/b&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          total_pages
+        &lt;/td&gt;
+        &lt;td&gt;
+          total number of pages
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          data
+        &lt;/td&gt;
+        &lt;td&gt;
+          JSON object with the requested data
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
     &lt;p&gt;In order to fetch data use &lt;b&gt;GET&lt;/b&gt; method
 &lt;br /&gt;
 Don’t forget to set your key in the header and your payload in the body&lt;/p&gt;
+
+    &lt;h3 style=&quot;color: red;&quot;&gt;
+Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
+&lt;/h3&gt;
+
+    &lt;h3 id=&quot;ping&quot;&gt;Ping&lt;/h3&gt;
+    &lt;p&gt;use the end point to test your integration.&lt;/p&gt;
+
+    &lt;p&gt;when you make a successful request, ping will respones with a payload which &lt;b&gt;does not has an expiry time&lt;/b&gt;, so that you can test your decode method.&lt;/p&gt;
+
+    &lt;p&gt;you should get the following after decoding the payload successfully&lt;/p&gt;
+
+    &lt;pre&gt;{ data: { ping: 'Pong' } } &lt;/pre&gt;
 
     &lt;h3 id=&quot;employees&quot;&gt;Employees&lt;/h3&gt;
 

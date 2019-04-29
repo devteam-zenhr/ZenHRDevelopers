@@ -241,10 +241,95 @@ strJwt = jwt.createJwt(jose.emit(),claims.emit(),"secret")
 print(strJwt)
 </pre>
 
+### Parameters
+
+By default we paginate data before responding to your request, the default is 10 records per page, you may change that by passing <b>per_page</b> param in the URL
+
+#### example
+<pre> https://www.zenhr.com/integration/v1/employees?per_page=15 </pre>
+
+since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we response with the first page
+
+#### example
+<pre> https://www.zenhr.com/integration/v1/employees?per_page=15&page=2 </pre>
+
+
 ### Requests and Respons
+
+Every respons will be encoded, after decoding it you will have the following JSON object
+<pre> {"current_page" => NUMBER, "per_page" => NUMBER, "total_number_of_records" => NUMBER, "total_pages" => NUMBER, "data" => JSON OBJECT} </pre>
+
+  <table class="table table-condensed" style="width: 70%">
+    <thead>
+      <tr>
+        <th scope="col">
+          Key
+        </th>
+        <th scope="col">
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          current_page
+        </td>
+        <td>
+          the page you are on, same as <b> page </b> parameter
+        </td>
+      </tr>
+      <tr>
+        <td>
+          per_page
+        </td>
+        <td>
+          the same as <b> per_page </b> parameter
+        </td>
+      </tr>
+      <tr>
+        <td>
+          total_number_of_records
+        </td>
+        <td>
+          the total number of all records, <b> not the number of the records in current page</b>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          total_pages
+        </td>
+        <td>
+          total number of pages
+        </td>
+      </tr>
+      <tr>
+        <td>
+          data
+        </td>
+        <td>
+          JSON object with the requested data
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 In order to fetch data use <b>GET</b> method
 <br>
 Don't forget to set your key in the header and your payload in the body
+
+<h3 style='color: red;'>
+Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
+</h3>
+
+### Ping
+use the end point to test your integration.
+
+when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.
+
+you should get the following after decoding the payload successfully
+
+<pre>{ data: { ping: 'Pong' } } </pre>
 
 ### Employees
 
