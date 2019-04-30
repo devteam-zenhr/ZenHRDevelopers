@@ -83,59 +83,7 @@ The <b>Key </b>will be used to identify your request and the <b>Secret </b>will 
 
 ### Authentication
 
-In every request you make to <b>ZenHR</b> you need to do the following:
-<ul>
-  <li>
-    Add the your <b>key</b> to the header
-  <br>
-    <b>example: <pre>{ key: “dgRp1eC2kAGEIYxRR4GKy-drze_Q6chskxebX__7Yjc” }</pre></b>
-  </li>
-  <li>
-    Your payload must be <b>encoded</b>  using the <b>secret</b> and set in the <b>body</b>
-  </li>
-  <li>
-    You should add your <b>key</b> to your <b>payload</b> before encoding it.
-  </li>
-</ul>
-
-#### Example:
-  your payload should follow the below structure:
-
-  <table class="table table-condensed" style="width: 70%">
-    <thead>
-      <tr>
-        <th scope="col">
-          Pyload parameters key
-        </th>
-        <th scope="col">
-          Description
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          params
-        </td>
-        <td>
-          Json params ex: {:employee_id=>1}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          key
-        </td>
-        <td>
-          The Identifier Key which was generated in the setting in your ZenHR account
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-#### Example:
-<pre><b>{:params=>{:employee_id=>1}, :key=>"YOUR KEY"}</b></pre>
-
-<b>then encrypt the payload using the API secret which related to the same key.</b>
+In every request you make to <b>ZenHR</b> you need to do add your <b> key </b> to the header
 <p style='color: red;'>
   You should note that you have a limit of 500 request everyday.
 </p>
@@ -318,19 +266,17 @@ Every respons will be encoded, after decoding it you will have the following JSO
     However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
   </p>
 
-In order to fetch data use <b>GET</b> method
-<br>
-Don't forget to set your key in the header and your payload in the body
+  In order to fetch data use <b>GET</b> method
 
-<h3 style='color: red;'>
-Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
-</h3>
+  <h3 style='color: red;'>
+  Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
+  </h3>
 
 ### Ping
 use this end point to test your integration.
 
 <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/ping
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/ping
 </pre>
 
 when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.
@@ -343,25 +289,16 @@ you should get the following after decoding the payload successfully
 
 In order to fetch all employees data
 <br>
-#### Payload example
+
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employees
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees
 </pre>
 
 for a single employee 
 <br>
-set your employee id in the payload inside params before you encode your payload
-
-#### Payload example
 
 <pre>
-{ key: YOUR_KEY, params: { id: YOUR_EMPLOYEE_ID } }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employee
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/EMPLOYEE_ID
 </pre>
 
 ### Professional data
@@ -369,34 +306,23 @@ curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https:
 
 In order to fetch all employees professional data
 <br>
-#### Payload example
+
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/professional_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/professional_data
 </pre>
 
 to get all professional data for a single employee
 <br>
-#### Payload example
 
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
 </pre>
 
 to get the current professional data for a single employee
 <br>
-#### Payload example
 
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
 </pre>
 
 ### Financial data
@@ -404,34 +330,23 @@ curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https:
 
 In order to fetch all employees financial data
 <br>
-#### Payload example
+
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_data
 </pre>
 
 to get all financial data for a single employee
 <br>
-#### Payload example
 
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
 </pre>
 
 to get the active financial data for a single employee
 <br>
-#### Payload example
 
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
 </pre>
 
 ### Financial transactions
@@ -439,45 +354,26 @@ curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https:
 
 In order to fetch all employees financial transactions
 <br>
-#### Payload example
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_transactions
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_transactions
 </pre>
 
 to get all financial transactions for a single employee
 <br>
-#### Payload example
-
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
 </pre>
 
 ### Salaries
 
-
 In order to fetch all employees salaries
 <br>
-#### Payload example
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/salaries
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/salaries
 </pre>
 
 to get all salaries for a single employee
 <br>
-#### Payload example
-
 <pre>
-{ key: YOUR_KEY }
-</pre>
-<pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
 </pre>

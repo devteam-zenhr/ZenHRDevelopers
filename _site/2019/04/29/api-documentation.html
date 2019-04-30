@@ -57,11 +57,7 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#getting-started" id="markdown-toc-getting-started">Getting started</a></li>
-  <li><a href="#authentication" id="markdown-toc-authentication">Authentication</a>    <ul>
-      <li><a href="#example" id="markdown-toc-example">Example:</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example:</a></li>
-    </ul>
-  </li>
+  <li><a href="#authentication" id="markdown-toc-authentication">Authentication</a></li>
   <li><a href="#encoding-and-decoding" id="markdown-toc-encoding-and-decoding">Encoding and Decoding</a>    <ul>
       <li><a href="#ruby" id="markdown-toc-ruby">Ruby:</a></li>
       <li><a href="#php" id="markdown-toc-php">PHP:</a></li>
@@ -69,39 +65,17 @@
     </ul>
   </li>
   <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
-      <li><a href="#example-2" id="markdown-toc-example-2">example</a></li>
-      <li><a href="#example-3" id="markdown-toc-example-3">example</a></li>
+      <li><a href="#example" id="markdown-toc-example">example</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">example</a></li>
     </ul>
   </li>
   <li><a href="#requests-and-respons" id="markdown-toc-requests-and-respons">Requests and Respons</a></li>
   <li><a href="#ping" id="markdown-toc-ping">Ping</a></li>
-  <li><a href="#employees" id="markdown-toc-employees">Employees</a>    <ul>
-      <li><a href="#payload-example" id="markdown-toc-payload-example">Payload example</a></li>
-      <li><a href="#payload-example-1" id="markdown-toc-payload-example-1">Payload example</a></li>
-    </ul>
-  </li>
-  <li><a href="#professional-data" id="markdown-toc-professional-data">Professional data</a>    <ul>
-      <li><a href="#payload-example-2" id="markdown-toc-payload-example-2">Payload example</a></li>
-      <li><a href="#payload-example-3" id="markdown-toc-payload-example-3">Payload example</a></li>
-      <li><a href="#payload-example-4" id="markdown-toc-payload-example-4">Payload example</a></li>
-    </ul>
-  </li>
-  <li><a href="#financial-data" id="markdown-toc-financial-data">Financial data</a>    <ul>
-      <li><a href="#payload-example-5" id="markdown-toc-payload-example-5">Payload example</a></li>
-      <li><a href="#payload-example-6" id="markdown-toc-payload-example-6">Payload example</a></li>
-      <li><a href="#payload-example-7" id="markdown-toc-payload-example-7">Payload example</a></li>
-    </ul>
-  </li>
-  <li><a href="#financial-transactions" id="markdown-toc-financial-transactions">Financial transactions</a>    <ul>
-      <li><a href="#payload-example-8" id="markdown-toc-payload-example-8">Payload example</a></li>
-      <li><a href="#payload-example-9" id="markdown-toc-payload-example-9">Payload example</a></li>
-    </ul>
-  </li>
-  <li><a href="#salaries" id="markdown-toc-salaries">Salaries</a>    <ul>
-      <li><a href="#payload-example-10" id="markdown-toc-payload-example-10">Payload example</a></li>
-      <li><a href="#payload-example-11" id="markdown-toc-payload-example-11">Payload example</a></li>
-    </ul>
-  </li>
+  <li><a href="#employees" id="markdown-toc-employees">Employees</a></li>
+  <li><a href="#professional-data" id="markdown-toc-professional-data">Professional data</a></li>
+  <li><a href="#financial-data" id="markdown-toc-financial-data">Financial data</a></li>
+  <li><a href="#financial-transactions" id="markdown-toc-financial-transactions">Financial transactions</a></li>
+  <li><a href="#salaries" id="markdown-toc-salaries">Salaries</a></li>
 </ul>
 
       </div>
@@ -177,59 +151,7 @@ The <b>Key </b>will be used to identify your request and the <b>Secret </b>will 
 
     <h3 id="authentication">Authentication</h3>
 
-    <p>In every request you make to <b>ZenHR</b> you need to do the following:</p>
-    <ul>
-  <li>
-    Add the your <b>key</b> to the header
-  <br />
-    <b>example: <pre>{ key: “dgRp1eC2kAGEIYxRR4GKy-drze_Q6chskxebX__7Yjc” }</pre></b>
-  </li>
-  <li>
-    Your payload must be <b>encoded</b>  using the <b>secret</b> and set in the <b>body</b>
-  </li>
-  <li>
-    You should add your <b>key</b> to your <b>payload</b> before encoding it.
-  </li>
-</ul>
-
-    <h4 id="example">Example:</h4>
-    <p>your payload should follow the below structure:</p>
-
-    <table class="table table-condensed" style="width: 70%">
-    <thead>
-      <tr>
-        <th scope="col">
-          Pyload parameters key
-        </th>
-        <th scope="col">
-          Description
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          params
-        </td>
-        <td>
-          Json params ex: {:employee_id=&gt;1}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          key
-        </td>
-        <td>
-          The Identifier Key which was generated in the setting in your ZenHR account
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-    <h4 id="example-1">Example:</h4>
-    <pre><b>{:params=&gt;{:employee_id=&gt;1}, :key=&gt;"YOUR KEY"}</b></pre>
-
-    <p><b>then encrypt the payload using the API secret which related to the same key.</b></p>
+    <p>In every request you make to <b>ZenHR</b> you need to do add your <b> key </b> to the header</p>
     <p style="color: red;">
   You should note that you have a limit of 500 request everyday.
 </p>
@@ -339,12 +261,12 @@ print(strJwt)
 
     <p>By default we paginate data before responding to your request, the default is 10 records per page, you may change that by passing <b>per_page</b> param in the URL</p>
 
-    <h4 id="example-2">example</h4>
+    <h4 id="example">example</h4>
     <pre> https://www.zenhr.com/integration/v1/employees?per_page=15 </pre>
 
     <p>since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we will respond with the first page</p>
 
-    <h4 id="example-3">example</h4>
+    <h4 id="example-1">example</h4>
     <pre> https://www.zenhr.com/integration/v1/employees?per_page=15&amp;page=2 </pre>
 
     <h3 id="requests-and-respons">Requests and Respons</h3>
@@ -411,19 +333,17 @@ print(strJwt)
     However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
   </p>
 
-    <p>In order to fetch data use <b>GET</b> method
-<br />
-Don’t forget to set your key in the header and your payload in the body</p>
+    <p>In order to fetch data use <b>GET</b> method</p>
 
     <h3 style="color: red;">
-Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
-</h3>
+  Please note that the encoded payload which comes from us will be valid for only a 1 minute, after the 1 minute the payload will be invalid.
+  </h3>
 
     <h3 id="ping">Ping</h3>
     <p>use this end point to test your integration.</p>
 
     <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/ping
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/ping
 </pre>
 
     <p>when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.</p>
@@ -436,139 +356,90 @@ curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https:
 
     <p>In order to fetch all employees data
 <br /></p>
-    <h4 id="payload-example">Payload example</h4>
+
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employees
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees
 </pre>
 
     <p>for a single employee 
-<br />
-set your employee id in the payload inside params before you encode your payload</p>
-
-    <h4 id="payload-example-1">Payload example</h4>
+<br /></p>
 
     <pre>
-{ key: YOUR_KEY, params: { id: YOUR_EMPLOYEE_ID } }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/employee
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/EMPLOYEE_ID
 </pre>
 
     <h3 id="professional-data">Professional data</h3>
 
     <p>In order to fetch all employees professional data
 <br /></p>
-    <h4 id="payload-example-2">Payload example</h4>
+
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/professional_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/professional_data
 </pre>
 
     <p>to get all professional data for a single employee
 <br /></p>
-    <h4 id="payload-example-3">Payload example</h4>
 
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
 </pre>
 
     <p>to get the current professional data for a single employee
 <br /></p>
-    <h4 id="payload-example-4">Payload example</h4>
 
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
 </pre>
 
     <h3 id="financial-data">Financial data</h3>
 
     <p>In order to fetch all employees financial data
 <br /></p>
-    <h4 id="payload-example-5">Payload example</h4>
+
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_data
 </pre>
 
     <p>to get all financial data for a single employee
 <br /></p>
-    <h4 id="payload-example-6">Payload example</h4>
 
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
 </pre>
 
     <p>to get the active financial data for a single employee
 <br /></p>
-    <h4 id="payload-example-7">Payload example</h4>
 
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
 </pre>
 
     <h3 id="financial-transactions">Financial transactions</h3>
 
     <p>In order to fetch all employees financial transactions
 <br /></p>
-    <h4 id="payload-example-8">Payload example</h4>
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/financial_transactions
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_transactions
 </pre>
 
     <p>to get all financial transactions for a single employee
 <br /></p>
-    <h4 id="payload-example-9">Payload example</h4>
-
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
 </pre>
 
     <h3 id="salaries">Salaries</h3>
 
     <p>In order to fetch all employees salaries
 <br /></p>
-    <h4 id="payload-example-10">Payload example</h4>
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/salaries
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/salaries
 </pre>
 
     <p>to get all salaries for a single employee
 <br /></p>
-    <h4 id="payload-example-11">Payload example</h4>
-
     <pre>
-{ key: YOUR_KEY }
-</pre>
-    <pre>
-curl --header "key: YOUR_KEY" --data 'YOUR_ENCODED_PAYLOAD' --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
 </pre>
   </div></div>
 
