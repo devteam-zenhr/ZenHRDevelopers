@@ -1,14 +1,14 @@
 <footer>
   <div class="container">
-    <div class="col-xs-8 text-left">
+    <div class="col-xs-6 text-left">
       {% for post in site.posts %}
         {% if post.title %}
           <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
         {% endif %}
       {% endfor %}
     </div>
-    <div class="col-xs-4 text-right">
-      <p>® ZenHR 2019</p>
+    <div class="col-xs-6">
+      <p class="text-right">® ZenHR 2019</p>
     </div>
   </div>
 </footer>

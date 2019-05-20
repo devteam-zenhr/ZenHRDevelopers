@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-30T12:44:42+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-20T11:55:39+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -9,7 +9,7 @@
   &lt;li&gt;&lt;a href=&quot;#encoding-and-decoding&quot; id=&quot;markdown-toc-encoding-and-decoding&quot;&gt;Encoding and Decoding&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#ruby&quot; id=&quot;markdown-toc-ruby&quot;&gt;Ruby:&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#php&quot; id=&quot;markdown-toc-php&quot;&gt;PHP:&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#paython&quot; id=&quot;markdown-toc-paython&quot;&gt;PAYTHON&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#python&quot; id=&quot;markdown-toc-python&quot;&gt;PYTHON&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#parameters&quot; id=&quot;markdown-toc-parameters&quot;&gt;Parameters&lt;/a&gt;    &lt;ul&gt;
@@ -161,7 +161,7 @@ $decoded = Jwt::decode($token, ['algorithm' =&amp;gt; $alg]);
 echo $decoded['data']; // 'string'
 &lt;/pre&gt;
 
-    &lt;h4 id=&quot;paython&quot;&gt;PAYTHON&lt;/h4&gt;
+    &lt;h4 id=&quot;python&quot;&gt;PYTHON&lt;/h4&gt;
 
     &lt;pre&gt;
 
@@ -309,7 +309,7 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
 curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees
 &lt;/pre&gt;
 
-    &lt;p&gt;for a single employee 
+    &lt;p&gt;for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;

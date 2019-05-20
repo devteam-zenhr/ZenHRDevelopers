@@ -50,7 +50,7 @@
     <h1 class="post-title">API Documentation</h1>
   </div>
   <div class="col-xs-12">
-    <div class="row">
+    <div class="">
 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="overflow">
 <div id="sidebar">
 <div>
@@ -61,7 +61,7 @@
   <li><a href="#encoding-and-decoding" id="markdown-toc-encoding-and-decoding">Encoding and Decoding</a>    <ul>
       <li><a href="#ruby" id="markdown-toc-ruby">Ruby:</a></li>
       <li><a href="#php" id="markdown-toc-php">PHP:</a></li>
-      <li><a href="#paython" id="markdown-toc-paython">PAYTHON</a></li>
+      <li><a href="#python" id="markdown-toc-python">PYTHON</a></li>
     </ul>
   </li>
   <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
@@ -213,7 +213,7 @@ $decoded = Jwt::decode($token, ['algorithm' =&gt; $alg]);
 echo $decoded['data']; // 'string'
 </pre>
 
-    <h4 id="paython">PAYTHON</h4>
+    <h4 id="python">PYTHON</h4>
 
     <pre>
 
@@ -361,7 +361,7 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
 curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees
 </pre>
 
-    <p>for a single employee 
+    <p>for a single employee
 <br /></p>
 
     <pre>
@@ -451,15 +451,15 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
     <div class="footer">
       <footer>
   <div class="container">
-    <div class="col-xs-8 text-left">
+    <div class="col-xs-6 text-left">
       
         
           <p><a href="/2019/04/29/api-documentation.html">API Documentation</a></p>
         
       
     </div>
-    <div class="col-xs-4 text-right">
-      <p>® ZenHR 2019</p>
+    <div class="col-xs-6">
+      <p class="text-right">® ZenHR 2019</p>
     </div>
   </div>
 </footer>

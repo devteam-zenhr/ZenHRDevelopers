@@ -3,7 +3,7 @@ layout: post
 title:  "API Documentation"
 style: bootstrap.css
 ---
-<div class="row">
+<div class="">
 <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="overflow">
 <div id="sidebar">
 <div markdown='1'>
@@ -145,7 +145,7 @@ $decoded = Jwt::decode($token, ['algorithm' => $alg]);
 echo $decoded['data']; // 'string'
 </pre>
 
-#### PAYTHON
+#### PYTHON
 
 <pre>
 
@@ -294,7 +294,7 @@ In order to fetch all employees data
 curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees
 </pre>
 
-for a single employee 
+for a single employee
 <br>
 
 <pre>

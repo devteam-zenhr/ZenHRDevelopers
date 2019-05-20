@@ -2,7 +2,7 @@ html{
   background-color: transparent !important;
 }
 body{
-  font-family: "Lato",sans-serif;
+  font-family: "OpenSans",sans-serif;
   color: #333333;
   text-shadow: transparent 0 0 0 !important;
   background-color: #ffffff;
@@ -51,7 +51,7 @@ h2{
 }
 
 .main-jumbotron{
-  background-color: #333; 
+  background-color: #333;
   color: #333333;
   padding: 10px 0px 0px 0;
 }
@@ -171,6 +171,7 @@ p#url {
 
 #markdown-toc li {
   line-height: 125%;
+  padding: 5px;
 }
 
 #markdown-toc li a {
@@ -204,6 +205,13 @@ p#url {
   #sidebar{display:none}
 }
 .post-title {
-  text-align: center;
+  margin-left: 25px;
 }
-#sidebar{max-height: 80% ; overflow: auto; margin-bottom: 100px; z-index: 1000}
+#sidebar{max-height: 80% ;  margin-bottom: 100px; z-index: 1000}
+#overflow{
+    background-color: whitesmoke;
+    padding: 20px;
+}
+.navbar{
+  margin-bottom: 5px;
+}

@@ -7,7 +7,7 @@ if [ -n "$TMUX" ]; then
   export TMUX=''
 fi
 
-if [ ! $ZENHR_DEVELOPERS_DIR ]; then export ZENHR_DEVELOPERS_DIR=$HOME/workspace/ZenHRDevelopers; fi
+if [ ! $ZENHR_DEVELOPERS_DIR ]; then export ZENHR_DEVELOPERS_DIR=$HOME/work/ZenHRDevelopers; fi
 
 cd $ZENHR_DEVELOPERS_DIR
 
