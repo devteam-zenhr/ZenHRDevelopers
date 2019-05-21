@@ -263,7 +263,7 @@ Every respons will be encoded, after decoding it you will have the following JSO
   </table>
 
   <p style='color: red'>
-    However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
+    However not all responses will have this structure of respnose, for example when you request a specific record it will only return the data without the other params
   </p>
 
   In order to fetch data use <b>GET</b> method
@@ -279,7 +279,7 @@ use this end point to test your integration.
 curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/ping
 </pre>
 
-when you make a successful request, ping will respones with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.
+when you make a successful request, ping will response with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.
 
 you should get the following after decoding the payload successfully
 
