@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-29T10:41:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-29T11:11:01+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -19,6 +19,7 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#requests-and-respons&quot; id=&quot;markdown-toc-requests-and-respons&quot;&gt;Requests and Respons&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#ping&quot; id=&quot;markdown-toc-ping&quot;&gt;Ping&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#branches&quot; id=&quot;markdown-toc-branches&quot;&gt;Branches&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#employees&quot; id=&quot;markdown-toc-employees&quot;&gt;Employees&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#professional-data&quot; id=&quot;markdown-toc-professional-data&quot;&gt;Professional data&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#financial-data&quot; id=&quot;markdown-toc-financial-data&quot;&gt;Financial data&lt;/a&gt;&lt;/li&gt;
@@ -299,6 +300,22 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
     &lt;p&gt;you should get the following after decoding the payload successfully&lt;/p&gt;
 
     &lt;pre&gt;{ data: { ping: 'Pong' } } &lt;/pre&gt;
+
+    &lt;h3 id=&quot;branches&quot;&gt;Branches&lt;/h3&gt;
+
+    &lt;p&gt;In order to fetch all branches data
+&lt;br /&gt;&lt;/p&gt;
+
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/branches
+&lt;/pre&gt;
+
+    &lt;p&gt;for a single branch
+&lt;br /&gt;&lt;/p&gt;
+
+    &lt;pre&gt;
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/branches/BRANCH_ID
+&lt;/pre&gt;
 
     &lt;h3 id=&quot;employees&quot;&gt;Employees&lt;/h3&gt;
 

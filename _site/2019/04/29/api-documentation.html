@@ -71,6 +71,7 @@
   </li>
   <li><a href="#requests-and-respons" id="markdown-toc-requests-and-respons">Requests and Respons</a></li>
   <li><a href="#ping" id="markdown-toc-ping">Ping</a></li>
+  <li><a href="#branches" id="markdown-toc-branches">Branches</a></li>
   <li><a href="#employees" id="markdown-toc-employees">Employees</a></li>
   <li><a href="#professional-data" id="markdown-toc-professional-data">Professional data</a></li>
   <li><a href="#financial-data" id="markdown-toc-financial-data">Financial data</a></li>
@@ -351,6 +352,22 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
     <p>you should get the following after decoding the payload successfully</p>
 
     <pre>{ data: { ping: 'Pong' } } </pre>
+
+    <h3 id="branches">Branches</h3>
+
+    <p>In order to fetch all branches data
+<br /></p>
+
+    <pre>
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches
+</pre>
+
+    <p>for a single branch
+<br /></p>
+
+    <pre>
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches/BRANCH_ID
+</pre>
 
     <h3 id="employees">Employees</h3>
 

@@ -285,6 +285,22 @@ you should get the following after decoding the payload successfully
 
 <pre>{ data: { ping: 'Pong' } } </pre>
 
+### Branches
+
+In order to fetch all branches data
+<br>
+
+<pre>
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches
+</pre>
+
+for a single branch
+<br>
+
+<pre>
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches/BRANCH_ID
+</pre>
+
 ### Employees
 
 In order to fetch all employees data
