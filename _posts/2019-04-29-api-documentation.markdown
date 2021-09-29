@@ -307,7 +307,7 @@ In order to fetch all employees data
 <br>
 
 <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees?branch_id=BRANCH_ID
 </pre>
 
 for a single employee
