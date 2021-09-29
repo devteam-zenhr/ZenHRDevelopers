@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-20T11:55:39+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-29T10:41:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ZenHR API’s Documentaion</title><subtitle></subtitle><entry><title type="html">API Documentation</title><link href="http://localhost:4000/2019/04/29/api-documentation.html" rel="alternate" type="text/html" title="API Documentation" /><published>2019-04-29T00:00:00+03:00</published><updated>2019-04-29T00:00:00+03:00</updated><id>http://localhost:4000/2019/04/29/api-documentation</id><content type="html" xml:base="http://localhost:4000/2019/04/29/api-documentation.html">&lt;div class=&quot;&quot;&gt;
 &lt;div class=&quot;col-lg-3 col-md-3 col-xs-12 col-sm-12&quot; id=&quot;overflow&quot;&gt;
 &lt;div id=&quot;sidebar&quot;&gt;
 &lt;div&gt;
@@ -278,7 +278,7 @@ print(strJwt)
   &lt;/table&gt;
 
     &lt;p style=&quot;color: red&quot;&gt;
-    However not all responses will have this structure of respnos, for example when you request a specific record it will only return the data without the other params
+    However not all responses will have this structure of respnose, for example when you request a specific record it will only return the data without the other params
   &lt;/p&gt;
 
     &lt;p&gt;In order to fetch data use &lt;b&gt;GET&lt;/b&gt; method&lt;/p&gt;
@@ -294,7 +294,7 @@ print(strJwt)
 curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/ping
 &lt;/pre&gt;
 
-    &lt;p&gt;when you make a successful request, ping will respones with a payload which &lt;b&gt;does not has an expiry time&lt;/b&gt;, so that you can test your decode method.&lt;/p&gt;
+    &lt;p&gt;when you make a successful request, ping will response with a payload which &lt;b&gt;does not has an expiry time&lt;/b&gt;, so that you can test your decode method.&lt;/p&gt;
 
     &lt;p&gt;you should get the following after decoding the payload successfully&lt;/p&gt;
 
@@ -306,14 +306,14 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/EMPLOYEE_ID
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/EMPLOYEE_ID?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;h3 id=&quot;professional-data&quot;&gt;Professional data&lt;/h3&gt;
@@ -322,21 +322,21 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/professional_data
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/professional_data?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get all professional data for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get the current professional data for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/professional_data/active
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data/active?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;h3 id=&quot;financial-data&quot;&gt;Financial data&lt;/h3&gt;
@@ -345,21 +345,21 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/financial_data
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/financial_data?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get all financial data for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get the active financial data for a single employee
 &lt;br /&gt;&lt;/p&gt;
 
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_data/active
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data/active?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;h3 id=&quot;financial-transactions&quot;&gt;Financial transactions&lt;/h3&gt;
@@ -367,13 +367,13 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
     &lt;p&gt;In order to fetch all employees financial transactions
 &lt;br /&gt;&lt;/p&gt;
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/financial_transactions
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get all financial transactions for a single employee
 &lt;br /&gt;&lt;/p&gt;
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/financial_transactions
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;h3 id=&quot;salaries&quot;&gt;Salaries&lt;/h3&gt;
@@ -381,12 +381,12 @@ curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/inte
     &lt;p&gt;In order to fetch all employees salaries
 &lt;br /&gt;&lt;/p&gt;
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/salaries
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/salaries?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
 
     &lt;p&gt;to get all salaries for a single employee
 &lt;br /&gt;&lt;/p&gt;
     &lt;pre&gt;
-curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/YOUR_EMPLOYEE_ID/salaries
+curl --header &quot;key: YOUR_KEY&quot; --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/salaries?branch_id=EMPLOYEE_BRANCH_ID
 &lt;/pre&gt;
   &lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
