@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "API Documentation"
+title:  "API Documentation | ZenHR"
+excerpt: "ZenHR's open API documentation instructions allow you to effectively integrate your ZenHR account with other third-party systems."
 style: bootstrap.css
 ---
 <div class="">
