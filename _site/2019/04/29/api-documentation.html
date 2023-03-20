@@ -263,12 +263,12 @@ print(strJwt)
     <p>By default we paginate data before responding to your request, the default is 10 records per page, you may change that by passing <b>per_page</b> param in the URL</p>
 
     <h4 id="example">example</h4>
-    <pre> https://www.zenhr.com/integration/v1/employees?per_page=15 </pre>
+    <pre> https://api.zenhr.com/integration/v1/employees?per_page=15 </pre>
 
     <p>since we are paginating the data, you need to specify which page you want to request using <b> page </b> param, if you did not pass this param we will respond with the first page</p>
 
     <h4 id="example-1">example</h4>
-    <pre> https://www.zenhr.com/integration/v1/employees?per_page=15&amp;page=2 </pre>
+    <pre> https://api.zenhr.com/integration/v1/employees?per_page=15&amp;page=2 </pre>
 
     <h3 id="requests-and-respons">Requests and Respons</h3>
 
@@ -344,7 +344,7 @@ print(strJwt)
     <p>use this end point to test your integration.</p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/ping
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/ping
 </pre>
 
     <p>when you make a successful request, ping will response with a payload which <b>does not has an expiry time</b>, so that you can test your decode method.</p>
@@ -359,14 +359,14 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/branches
 </pre>
 
     <p>for a single branch
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/branches/BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/branches/BRANCH_ID
 </pre>
 
     <h3 id="employees">Employees</h3>
@@ -375,14 +375,14 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees?branch_id=BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees?branch_id=BRANCH_ID
 </pre>
 
     <p>for a single employee
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/EMPLOYEE_ID?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/EMPLOYEE_ID?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <h3 id="professional-data">Professional data</h3>
@@ -391,21 +391,21 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/professional_data?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/professional_data?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get all professional data for a single employee
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get the current professional data for a single employee
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data/active?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/professional_data/active?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <h3 id="financial-data">Financial data</h3>
@@ -414,21 +414,21 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_data?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/financial_data?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get all financial data for a single employee
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get the active financial data for a single employee
 <br /></p>
 
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data/active?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_data/active?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <h3 id="financial-transactions">Financial transactions</h3>
@@ -436,13 +436,13 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
     <p>In order to fetch all employees financial transactions
 <br /></p>
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get all financial transactions for a single employee
 <br /></p>
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/financial_transactions?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <h3 id="salaries">Salaries</h3>
@@ -450,13 +450,13 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
     <p>In order to fetch all employees salaries
 <br /></p>
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/salaries?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/salaries?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
 
     <p>to get all salaries for a single employee
 <br /></p>
     <pre>
-curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/salaries?branch_id=EMPLOYEE_BRANCH_ID
+curl --header "key: YOUR_KEY" --request GET https://api.zenhr.com/integration/v1/employees/YOUR_EMPLOYEE_ID/salaries?branch_id=EMPLOYEE_BRANCH_ID
 </pre>
   </div></div>
 
@@ -469,11 +469,11 @@ curl --header "key: YOUR_KEY" --request GET https://www.zenhr.com/integration/v1
       <footer>
   <div class="container">
     <div class="col-xs-6 text-left">
-      
-        
+
+
           <p><a href="/2019/04/29/api-documentation.html">API Documentation | ZenHR</a></p>
-        
-      
+
+
     </div>
     <div class="col-xs-6">
       <p class="text-right">® ZenHR 2019</p>
